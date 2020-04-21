@@ -1,0 +1,23 @@
+server:
+  port: 6002
+spring:
+  application:
+    name: yifan-oauth-server
+  redis:
+    host: 192.168.109.10
+    port: 6379
+  datasource:
+    url: jdbc:mysql://192.168.109.10:3306/oauth-center?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.109.10:8848

@@ -1,0 +1,23 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: yifan-user-center
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.109.10:8848
+
+  datasource:
+    url: jdbc:mysql://192.168.109.10:3306/user-center?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  redis:
+    host: 192.168.109.10

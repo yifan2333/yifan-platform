@@ -1,0 +1,9 @@
+server:
+    port: 8000
+spring:
+    application:
+        name: service-a
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 192.168.109.10:8848

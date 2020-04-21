@@ -1,0 +1,22 @@
+server:
+  port: 6001
+spring:
+  application:
+    name: yifan-oss-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.109.10:8848
+security:
+  oauth2:
+    sso:
+      login-path: /login
+    client:
+      client-id: owen
+      client-secret: owen
+      user-authorization-uri: http://127.0.0.1:6002/oauth/authorize
+      access-token-uri: http://127.0.0.1:6002/oauth/token
+      registered-redirect-uri: http://127.0.0.1:8000/test
+    resource:
+      token-info-uri: http://127.0.0.1:6002/oauth/check_token
+      user-info-uri: http://127.0.0.1:6002/user
