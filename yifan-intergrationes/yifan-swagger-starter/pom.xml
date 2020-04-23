@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.yifan</groupId>
-        <artifactId>yifan-intergrations</artifactId>
+        <artifactId>yifan-intergrationes</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>yifan-swagger-starter</artifactId>

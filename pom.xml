@@ -16,7 +16,7 @@
 
     <modules>
         <module>yifan-gateways</module>
-        <module>yifan-intergrations</module>
+        <module>yifan-intergrationes</module>
         <module>yifan-servers</module>
         <module>yifan-authentication</module>
         <module>yifan-business</module>
