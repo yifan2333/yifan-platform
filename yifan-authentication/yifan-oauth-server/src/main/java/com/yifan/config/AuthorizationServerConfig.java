@@ -59,7 +59,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      * 用来配置客户端详情服务，
      * 客户端详情信息在这里进行初始化，
      * 你能够把客户端详情信息写死在这里或者是通过数据库来存储调取详情信息。客户端就是指第三方应用
-     *
+     * 配置客户端的 service，也就是应用怎么获取到客户端的信息
+     * ，一般来说是从内存或者数据库中获取，已经提供了他们的默认实现，你也可以自定义
      * @param clients the clients
      * @throws Exception the exception
      * @author wuyifan
@@ -73,7 +74,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     /**
      * Configure.
      * 用来配置令牌端点(Token Endpoint)的安全约束.
-     *
+     * 配置授权服务器各个端点的非安全功能，
+     * 如令牌存储，令牌自定义，用户批准和授权类型。
+     * 如果需要密码授权模式，需要提供 AuthenticationManager 的 bean。
      * @param endpoints the endpoints
      * @author wuyifan
      * @date 2019年12月30日 14:58
@@ -88,7 +91,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     /**
      * Configure.
      * 用来配置授权（authorization）以及令牌（token）的访问端点和令牌服务(token services)。
-     *
+     * 配置授权服务器的安全信息，比如 ssl 配置、
+     * checktoken 是否允许访问，
+     * 是否允许客户端的表单身份验证等
      * @param security the security
      * @author wuyifan
      * @date 2019年12月30日 14:58

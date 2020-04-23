@@ -21,3 +21,7 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.109.10:8848
+application:
+  security:
+    oauth:
+      login-processing-url: /oauth/login

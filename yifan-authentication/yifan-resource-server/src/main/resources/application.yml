@@ -1,0 +1,15 @@
+server:
+  port: 6003
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.109.10:8848
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://127.0.0.1:6002/oauth/check_token
+    client:
+      access-token-uri: http://127.0.0.1:6002/oauth/token
+      client-id: oauth2
+      client-secret: oauth2

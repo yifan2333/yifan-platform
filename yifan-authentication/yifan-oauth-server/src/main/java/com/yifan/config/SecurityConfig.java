@@ -9,55 +9,56 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 @Configuration
 @EnableWebSecurity
 @ConditionalOnClass(WebSecurityConfigurerAdapter.class)
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-public class SecurityConfig {
+@Order(SecurityProperties.BASIC_AUTH_ORDER)
+@RequiredArgsConstructor
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    @NonNull
+    private final CustomerSecurityProperties customerSecurityProperties;
 
-    @Configuration
-    @Order(SecurityProperties.BASIC_AUTH_ORDER)
-    static class DefaultConfigurerAdapter extends WebSecurityConfigurerAdapter {
-
-        @Override
-        @Bean
-        public AuthenticationManager authenticationManagerBean() throws Exception {
-            return super.authenticationManagerBean();
-        }
-
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests()
-                    .antMatchers(HttpMethod.OPTIONS).permitAll()
-                    .antMatchers("/static", "/actuator/*").permitAll()
-                    .antMatchers("/swagger-ui.html").permitAll()
-                    .antMatchers("/webjars/**").permitAll()
-                    .antMatchers("/v2/**").permitAll()
-                    .antMatchers("/swagger-resources/**").permitAll()
-                    //开放登录
-                    .antMatchers("/login").permitAll()
-                    .antMatchers("/dashboard/login").permitAll()
-                    .anyRequest()
-                    .authenticated()
-                    .and()
-                    .formLogin()
-                    .loginPage("/login")
-                    .permitAll()
-                    .and()
-                    .logout()
-                    .permitAll();
-        }
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
+    @Override
+    public void configure(WebSecurity web) {
+        // 将 check_token 暴露出去，否则资源服务器访问时报 403 错误
+        web.ignoring().antMatchers("/oauth/check_token");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers("/static/**", "/actuator/*").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
+                .antMatchers("/oauth/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/favicon.ico", "/**/*.jpg", "/**/*.html", "/**/*.css", "/**/*.js", "/**/*.md").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/oauth/login")
+                .loginProcessingUrl(customerSecurityProperties.getLoginProcessingUrl());
+    }
 }
