@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yifan.dto.SysUserDto;
 import com.yifan.entity.SysUserEntity;
-import com.yifan.repository.UserRepository;
+import com.yifan.repository.SysUserRepository;
 import com.yifan.result.ActionResult;
 import com.yifan.result.ResultType;
 
@@ -18,12 +18,12 @@ import com.yifan.result.ResultType;
 public class UserController {
 
     @Resource
-    private UserRepository userRepository;
+    private SysUserRepository sysUserRepository;
 
     @GetMapping("userByUsername")
     public ActionResult<SysUserDto> userByUsername(@RequestParam String userName) {
         ActionResult.Builder<SysUserDto> builder = new ActionResult.Builder<>();
-        SysUserEntity entity = userRepository.findByUsername(userName);
+        SysUserEntity entity = sysUserRepository.findByUsername(userName);
         if (entity == null) {
             return builder.resultType(ResultType.BAD_REQUEST).message("未查询到用户").build();
         }

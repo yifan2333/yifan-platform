@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.yifan.entity.SysUserEntity;
 
-public interface UserRepository extends JpaRepository<SysUserEntity, Integer>  {
+public interface SysUserRepository extends JpaRepository<SysUserEntity, Integer> {
 
     SysUserEntity findByUsername(String username);
 
