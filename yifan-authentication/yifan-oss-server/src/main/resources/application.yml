@@ -12,11 +12,10 @@ security:
     sso:
       login-path: /login
     client:
-      client-id: owen
-      client-secret: owen
+      client-id: oauth2
+      client-secret: oauth2
       user-authorization-uri: http://127.0.0.1:6002/oauth/authorize
       access-token-uri: http://127.0.0.1:6002/oauth/token
-      registered-redirect-uri: http://127.0.0.1:8000/test
+      registered-redirect-uri: http://127.0.0.1:6001/login
     resource:
       token-info-uri: http://127.0.0.1:6002/oauth/check_token
-      user-info-uri: http://127.0.0.1:6002/user
