@@ -16,7 +16,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 全局异常处理
- * 
+ *
  * @author caowuchao
  * @since 2018年5月17日
  * @version 1.0
@@ -44,7 +44,7 @@ public class BaseExceptionController implements ErrorController {
 				return builder.resultType(ResultType.UNAUTHORIZED).build();
 			case HttpServletResponse.SC_FORBIDDEN:
 				logger.error("Permission denied");
-				return builder.resultType(ResultType.NOT_PERMISSION).build();
+				return builder.resultType(ResultType.FORBIDDEN).build();
 			case HttpServletResponse.SC_NOT_FOUND:
 				logger.error("404 NOT FOUND");
 				return builder.resultType(ResultType.NOT_FOUND).build();
@@ -55,6 +55,4 @@ public class BaseExceptionController implements ErrorController {
 
 		return builder.resultType(ResultType.NOT_EXTENDED).build();
 	}
-
-
 }

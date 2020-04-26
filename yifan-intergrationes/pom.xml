@@ -18,6 +18,7 @@
         <module>yifan-mysql-starter</module>
         <module>yifan-swagger-starter</module>
         <module>yifan-redis-starter</module>
+        <module>yifan-security-starter</module>
     </modules>
 
     <build>

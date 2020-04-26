@@ -1,5 +1,7 @@
 package com.yifan.config;
 
+import javax.annotation.Resource;
+
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
@@ -31,6 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Resource
+    private PermitUrlProperties permitUrlProperties;
+
     @NonNull
     private final CustomerSecurityProperties customerSecurityProperties;
 
@@ -50,11 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .antMatchers("/static/**", "/actuator/*").permitAll()
-                .antMatchers("/swagger-ui.html").permitAll()
-                .antMatchers("/swagger-resources/**").permitAll()
-                .antMatchers("/oauth/login").permitAll()
-                .antMatchers(HttpMethod.GET, "/", "/favicon.ico", "/**/*.jpg", "/**/*.html", "/**/*.css", "/**/*.js", "/**/*.md").permitAll()
+                .antMatchers(permitUrlProperties.getIgnored()).permitAll()
+                .antMatchers().permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

@@ -1,6 +1,9 @@
 server:
   port: 6003
 spring:
+  redis:
+    host: 192.168.109.10
+    port: 6379
   cloud:
     nacos:
       discovery:
@@ -13,3 +16,4 @@ security:
       access-token-uri: http://127.0.0.1:6002/oauth/token
       client-id: oauth2
       client-secret: oauth2
+
