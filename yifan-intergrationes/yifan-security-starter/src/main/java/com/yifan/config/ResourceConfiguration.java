@@ -15,8 +15,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
-import com.yifan.serialization.FastJsonRedisTokenStoreSerializationStrategy;
-
 @Configuration
 @EnableResourceServer
 @EnableWebSecurity
@@ -24,15 +22,8 @@ import com.yifan.serialization.FastJsonRedisTokenStoreSerializationStrategy;
 public class ResourceConfiguration extends ResourceServerConfigurerAdapter {
 
     @Bean
-    public FastJsonRedisTokenStoreSerializationStrategy fastJsonRedisTokenStoreSerializationStrategy() {
-        return new FastJsonRedisTokenStoreSerializationStrategy();
-    }
-
-    @Bean
     public TokenStore tokenStore(RedisConnectionFactory redisConnectionFactory) {
-        RedisTokenStore redisTokenStore = new RedisTokenStore(redisConnectionFactory);
-        redisTokenStore.setSerializationStrategy(fastJsonRedisTokenStoreSerializationStrategy());
-        return redisTokenStore;
+        return new RedisTokenStore(redisConnectionFactory);
     }
 
     @Resource
