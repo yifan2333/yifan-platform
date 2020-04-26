@@ -16,4 +16,3 @@ security:
       access-token-uri: http://127.0.0.1:6002/oauth/token
       client-id: oauth2
       client-secret: oauth2
-

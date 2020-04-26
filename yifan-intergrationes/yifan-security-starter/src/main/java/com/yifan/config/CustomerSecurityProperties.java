@@ -8,17 +8,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * The type Permit url properties.
- *
- * @author wuyifan
- * @date 2020年04月26日 17:11
- */
-@Configuration
-@ConfigurationProperties(prefix = "security.oauth2")
-@EnableConfigurationProperties(PermitUrlProperties.class)
-public class PermitUrlProperties {
+import lombok.Data;
 
+@Data
+@Configuration
+@ConfigurationProperties("application.security.oauth")
+@EnableConfigurationProperties(CustomerSecurityProperties.class)
+public class CustomerSecurityProperties {
+
+    /**
+     * 忽略的路径
+     */
     private static final String[] ENDPOINTS = {"/**/*.jpg", "/**/*.txt", "/**/*.json", "/**/*.html",
             "/**/*.css", "/**/*.js", "/**/*.md", "/v2/api-docs-ext", "/csrf", "/static/**",
             "/**/actuator/health", "/**/actuator/env", "/**/actuator/metrics/**",

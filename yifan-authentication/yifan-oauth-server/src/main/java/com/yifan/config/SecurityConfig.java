@@ -1,7 +1,5 @@
 package com.yifan.config;
 
-import javax.annotation.Resource;
-
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
@@ -33,8 +31,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Resource
-    private PermitUrlProperties permitUrlProperties;
 
     @NonNull
     private final CustomerSecurityProperties customerSecurityProperties;
@@ -55,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .antMatchers(permitUrlProperties.getIgnored()).permitAll()
+                .antMatchers(customerSecurityProperties.getIgnored()).permitAll()
                 .antMatchers().permitAll()
                 .anyRequest().authenticated()
                 .and()

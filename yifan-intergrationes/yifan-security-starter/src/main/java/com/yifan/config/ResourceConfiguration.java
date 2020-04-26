@@ -27,7 +27,7 @@ public class ResourceConfiguration extends ResourceServerConfigurerAdapter {
     }
 
     @Resource
-    private PermitUrlProperties permitUrlProperties;
+    private CustomerSecurityProperties customerSecurityProperties;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -38,7 +38,7 @@ public class ResourceConfiguration extends ResourceServerConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .antMatchers(permitUrlProperties.getIgnored()).permitAll()
+                .antMatchers(customerSecurityProperties.getIgnored()).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
