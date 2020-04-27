@@ -25,6 +25,12 @@ import org.springframework.web.server.WebFilterChain;
 
 import reactor.core.publisher.Mono;
 
+/**
+ * The type Security config.
+ *
+ * @author wuyifan
+ * @date 2020年04月27日 19:33
+ */
 @Configuration
 public class SecurityConfig {
 
@@ -40,6 +46,13 @@ public class SecurityConfig {
     @Resource
     public TokenStore tokenStore;
 
+    /**
+     *跨域喷子hi
+     *
+     * @return the web filter
+     * @author wuyifan
+     * @date 2020年04月27日 19:33
+     */
     public WebFilter corsFilter() {
         return (ServerWebExchange ctx, WebFilterChain chain) -> {
             ServerHttpRequest request = ctx.getRequest();
@@ -65,9 +78,18 @@ public class SecurityConfig {
         };
     }
 
+    /**
+     * Web flux security filter chain security web filter chain.
+     *
+     * @param http the http
+     * @return the security web filter chain
+     * @throws Exception the exception
+     * @author wuyifan
+     * @date 2020年04月27日 19:33
+     */
     @Bean
     public SecurityWebFilterChain webFluxSecurityFilterChain(ServerHttpSecurity http) throws Exception{
-        //token管理器
+        //token 管理器
         ReactiveAuthenticationManager tokenAuthenticationManager = new ReactiveRedisAuthenticationManager(tokenStore);
         //认证过滤器
         AuthenticationWebFilter authenticationWebFilter = new AuthenticationWebFilter(tokenAuthenticationManager);

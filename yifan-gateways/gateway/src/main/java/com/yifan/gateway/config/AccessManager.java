@@ -13,9 +13,17 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
 
+import com.yifan.common.properties.CustomerSecurityProperties;
+
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
+/**
+ * The type Access manager.
+ *
+ * @author wuyifan
+ * @date 2020年04月27日 19:30
+ */
 @Slf4j
 @Component
 public class AccessManager implements ReactiveAuthorizationManager<AuthorizationContext> {
@@ -41,16 +49,28 @@ public class AccessManager implements ReactiveAuthorizationManager<Authorization
     }
 
     /**
-     * 校验是否属于静态资源
-     * @param requestPath 请求路径
-     * @return
+     * 是否直接放行
+     *
+     * @param requestPath the request path
+     * @return the boolean
+     * @author wuyifan
+     * @date 2020年04月27日 19:30
      */
     private boolean permitAll(String requestPath) {
         return Arrays.stream(customerSecurityProperties.getIgnored())
                 .anyMatch(r -> antPathMatcher.match(r, requestPath));
     }
 
-    //权限校验
+    /**
+     * 校验权限
+     *
+     * @param exchange    the exchange
+     * @param auth        the auth
+     * @param requestPath the request path
+     * @return the boolean
+     * @author wuyifan
+     * @date 2020年04月27日 19:30
+     */
     private boolean checkAuthorities(ServerWebExchange exchange, Authentication auth, String requestPath) {
         if(auth instanceof OAuth2Authentication){
             OAuth2Authentication authentication = (OAuth2Authentication) auth;
