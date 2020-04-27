@@ -1,8 +1,6 @@
 package com.yifan.security.entrypoint;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +10,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
 import com.yifan.common.utils.ResponseUtils;
+import com.yifan.web.result.ActionResult;
+import com.yifan.web.result.ResultType;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,13 +28,9 @@ public class SimpleAuthenticationEntryPoint implements AuthenticationEntryPoint 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         log.error("认证失败", authException);
-
-        Map<String, String> map = new HashMap<>(2);
-        map.put("uri", request.getRequestURI());
-        map.put("msg", "认证失败");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setCharacterEncoding("utf-8");
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        ResponseUtils.responseJsonWriter(response, map);
+        ResponseUtils.responseJsonWriter(response, new ActionResult.Builder<>().resultType(ResultType.UNAUTHORIZED).build());
     }
 }

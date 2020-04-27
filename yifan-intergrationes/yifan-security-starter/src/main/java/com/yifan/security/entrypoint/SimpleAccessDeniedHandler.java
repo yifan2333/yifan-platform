@@ -1,8 +1,6 @@
 package com.yifan.security.entrypoint;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +11,8 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
 import com.yifan.common.utils.ResponseUtils;
+import com.yifan.web.result.ActionResult;
+import com.yifan.web.result.ResultType;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,14 +27,10 @@ import lombok.extern.slf4j.Slf4j;
 public class SimpleAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
-        log.info("授权失败", accessDeniedException);
-
-        Map<String, String> map = new HashMap<>(2);
-        map.put("uri", request.getRequestURI());
-        map.put("msg", "授权失败");
+        log.error("认证失败");
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setCharacterEncoding("utf-8");
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        ResponseUtils.responseJsonWriter(response, map);
+        ResponseUtils.responseJsonWriter(response, new ActionResult.Builder<>().resultType(ResultType.FORBIDDEN).build());
     }
 }

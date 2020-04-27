@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
@@ -33,11 +34,16 @@ public class ResourceConfiguration extends ResourceServerConfigurerAdapter {
     private CustomerSecurityProperties customerSecurityProperties;
 
     @Override
+    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+        // 异常处理
+        resources.authenticationEntryPoint(new SimpleAuthenticationEntryPoint()).accessDeniedHandler(new SimpleAccessDeniedHandler());
+
+    }
+
+    @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .exceptionHandling()
-                .accessDeniedHandler(new SimpleAccessDeniedHandler())
-                .authenticationEntryPoint(new SimpleAuthenticationEntryPoint())
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()

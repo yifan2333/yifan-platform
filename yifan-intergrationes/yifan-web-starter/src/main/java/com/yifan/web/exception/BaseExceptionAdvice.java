@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -193,23 +192,6 @@ public class BaseExceptionAdvice {
 		}
 		return builder.build();
 	}
-
-	/**
-	 * Handle access denied exception action result.
-	 *
-	 * @param e the e
-	 * @return the action result
-	 * @author wuyifan
-	 * @date 2020年04月26日 17:01
-	 */
-	@ResponseStatus(HttpStatus.FORBIDDEN)
-    @ExceptionHandler(AccessDeniedException.class)
-    public ActionResult<String> handleAccessDeniedException(AccessDeniedException e) {
-        logger.error("access denied {}", e.getMessage());
-        ActionResult.Builder<String> builder = new ActionResult.Builder<>();
-        builder.resultType(ResultType.FORBIDDEN);
-        return builder.build();
-    }
 
 	/**
 	 * Handle exception action result.

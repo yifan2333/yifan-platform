@@ -15,9 +15,9 @@ public enum ResultType implements BaseResultType {
 
 	BAD_REQUEST(400, "请求参数错误"),
 
-	UNAUTHORIZED (401, "没有权限"),
+	UNAUTHORIZED (401, "授权失败"),
 
-	FORBIDDEN(403, "非法访问"),
+	FORBIDDEN(403, "禁止访问"),
 
 	NOT_FOUND(404, "请求地址错误"),
 
