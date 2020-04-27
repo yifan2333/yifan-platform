@@ -31,9 +31,9 @@ public class ReactiveRedisAuthenticationManager implements ReactiveAuthenticatio
                     log.info("accessToken is :{}",accessToken);
                     OAuth2AccessToken oAuth2AccessToken = this.tokenStore.readAccessToken(accessToken);
                     if(oAuth2AccessToken == null){
-                        return Mono.error(new InvalidTokenException("invalid access token,please check"));
+                        return Mono.error(new InvalidTokenException("错误的Access Token"));
                     }else if(oAuth2AccessToken.isExpired()){
-                        return Mono.error(new InvalidTokenException("access token has expired,please reacquire token"));
+                        return Mono.error(new InvalidTokenException("Access Token 已经失效"));
                     }
 
                     OAuth2Authentication auth2Authentication = tokenStore.readAuthentication(accessToken);
