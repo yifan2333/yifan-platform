@@ -36,7 +36,10 @@
             <groupId>com.yifan</groupId>
             <artifactId>yifan-mysql-starter</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.yifan</groupId>
+            <artifactId>yifan-common</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

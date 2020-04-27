@@ -9,7 +9,7 @@ spring:
       discovery:
         server-addr: 192.168.109.10:8848
   application:
-    name: yifan-resource-name
+    name: yifan-resource-server
 security:
   oauth2:
     resource:
