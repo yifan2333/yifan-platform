@@ -20,6 +20,7 @@
         <module>yifan-servers</module>
         <module>yifan-authentication</module>
         <module>yifan-business</module>
+        <module>yifan-commons</module>
     </modules>
 
     <properties>

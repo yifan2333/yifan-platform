@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "application.security.oauth",
+      "type": "com.yifan.config.CustomerSecurityProperties",
+      "sourceType": "com.yifan.config.CustomerSecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "application.security.oauth.ignored",
+      "type": "java.lang.String[]",
+      "sourceType": "com.yifan.config.CustomerSecurityProperties"
+    }
+  ],
+  "hints": []
+}

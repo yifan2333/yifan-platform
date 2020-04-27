@@ -8,6 +8,8 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.109.10:8848
+  application:
+    name: yifan-resource-name
 security:
   oauth2:
     resource:
