@@ -55,10 +55,12 @@ public class OauthController extends BaseController {
     public HttpEntity<?> userId() {
         return ResponseEntity.ok(getUserId());
     }
+
     @GetMapping("/userName")
     public HttpEntity<?> userName() {
         return ResponseEntity.ok(getUserName());
     }
+
     @GetMapping("/user")
     public HttpEntity<?> user() {
         return ResponseEntity.ok(getUser());

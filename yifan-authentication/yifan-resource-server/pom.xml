@@ -12,14 +12,7 @@
     <name>yifan-resource-server</name>
     <description>Demo project for Spring Boot</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
-    </properties>
-
     <dependencies>
-
-
         <dependency>
             <groupId>com.yifan</groupId>
             <artifactId>yifan-web-starter</artifactId>
