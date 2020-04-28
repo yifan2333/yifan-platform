@@ -3,10 +3,10 @@ server:
 spring:
   application:
     name: yifan-user-center
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.109.10:8848
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.109.10:8848
 
   datasource:
     url: jdbc:mysql://192.168.109.10:3306/user-center?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
@@ -21,3 +21,8 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   redis:
     host: 192.168.109.10
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8990/eureka/

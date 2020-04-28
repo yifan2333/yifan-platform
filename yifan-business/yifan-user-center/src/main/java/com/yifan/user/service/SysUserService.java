@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang3.StringUtils;
+//import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -27,9 +27,9 @@ public class SysUserService {
 
     public com.yifan.common.entity.security.SysUserEntity getSysUser(String userName) {
 
-        if (StringUtils.isEmpty(userName)) {
-            return null;
-        }
+//        if (StringUtils.isEmpty(userName)) {
+//            return null;
+//        }
         SysUserEntity user = sysUserRepository.findByUsername(userName);
         if (user == null) {
             return null;

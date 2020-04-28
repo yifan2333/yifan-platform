@@ -17,10 +17,14 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.109.10:8848
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.109.10:8848
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8990/eureka/
 application:
   security:
     oauth:

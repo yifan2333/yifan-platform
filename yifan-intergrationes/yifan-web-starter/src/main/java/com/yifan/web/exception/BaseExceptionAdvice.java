@@ -7,7 +7,6 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.ValidationException;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -130,10 +129,10 @@ public class BaseExceptionAdvice {
 		String message = violation.getMessage();
 		ActionResult.Builder<String> builder = new ActionResult.Builder<>();
 		builder.resultType(ResultType.BAD_REQUEST);
-		if (StringUtils.isNotBlank(message)) {
+//		if (StringUtils.isNotBlank(message)) {
 			logger.error("参数验证失败 {}", message);
 			builder.message(message);
-		}
+//		}
 		return builder.build();
 	}
 

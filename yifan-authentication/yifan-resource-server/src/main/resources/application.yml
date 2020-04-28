@@ -4,10 +4,10 @@ spring:
   redis:
     host: 192.168.109.10
     port: 6379
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.109.10:8848
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.109.10:8848
   application:
     name: yifan-resource-server
 security:
@@ -21,3 +21,8 @@ security:
 logging:
   level:
     org.springframework.security: debug
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8990/eureka/
