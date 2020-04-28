@@ -1,4 +1,4 @@
-package com.yifan.resource;
+package com.yifan.server;
 
 import java.util.Map;
 
