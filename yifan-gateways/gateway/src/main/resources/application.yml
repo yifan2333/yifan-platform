@@ -3,7 +3,6 @@ server:
 spring:
   application:
     name: gateway
-
   cloud:
     nacos:
       discovery:
@@ -16,8 +15,16 @@ spring:
   redis:
     host: 192.168.109.10
     port: 6379
+application:
+  security:
+    oauth:
+      ignored:
+        - '/yifan-oauth-server/**'
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+
+
+

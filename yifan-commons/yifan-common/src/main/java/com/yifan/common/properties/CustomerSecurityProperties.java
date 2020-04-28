@@ -34,7 +34,7 @@ public class CustomerSecurityProperties {
             "/**/v2/api-docs/**", "/**/swagger-ui.html", "/**/swagger-resources/**", "/**/webjars/**", "/**/druid/**",
             "/**/actuator/hystrix.stream", "/**/actuator/hystrix.stream**/**", "/**/turbine.stream", "/**/turbine.stream**/**",
             "/**/hystrix", "/**/hystrix.stream", "/**/hystrix/**", "/**/hystrix/**/**", "/**/proxy.stream/**", "/**/favicon.ico",
-            "/oauth/login", "/"};
+            "/oauth/login"};
 
     private String[] ignored;
 
