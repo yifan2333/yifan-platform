@@ -1,0 +1,36 @@
+server:
+  port: 2000
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.109.10:8848
+  redis:
+    host: 192.168.109.10
+    port: 6379
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://127.0.0.1:6002/oauth/check_token
+      user-info-uri:  http://127.0.0.1:6002/user
+    client:
+      access-token-uri: http://127.0.0.1:6002/oauth/token
+      client-id: oauth2
+      client-secret: oauth2
+application:
+  security:
+    oauth:
+      ignored:
+        - '/yifan-oauth-server/**'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+zuul:
+  routes:
+    yifan-oauth-server:
+      path: /yifan-oauth-server/**
+      serviceId: yifan-oauth-server
