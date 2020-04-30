@@ -7,16 +7,10 @@
         <artifactId>yifan-gateways</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>gateway</artifactId>
+    <artifactId>yifan-colud-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gateway</name>
-    <description>gateway</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
-    </properties>
+    <name>colud-gateway</name>
+    <description>colud-gateway</description>
 
     <dependencies>
         <dependency>
