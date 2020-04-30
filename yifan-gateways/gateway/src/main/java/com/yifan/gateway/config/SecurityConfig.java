@@ -96,6 +96,10 @@ public class SecurityConfig {
         authenticationWebFilter.setServerAuthenticationConverter(new ServerBearerTokenAuthenticationConverter());
 
         http
+                .headers()
+                .frameOptions()
+                .disable()
+                .and()
                 .httpBasic().disable()
                 .csrf().disable()
                 .authorizeExchange()
