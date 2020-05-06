@@ -67,9 +67,9 @@ public class FastJsonRedisTokenStoreSerializationStrategy implements RedisTokenS
                 return t;
             } catch (Exception e) {
                 int count = getCount();
-                LOGGER.error("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz);
+                LOGGER.error("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz, e);
                 if (count < MAX_RETRIES_NUMBER) {
-                    LOGGER.info("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz);
+                    LOGGER.info("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz, e);
                     deserialize(bytes, clazz);
                 }
             }
@@ -101,9 +101,9 @@ public class FastJsonRedisTokenStoreSerializationStrategy implements RedisTokenS
                 return bytes;
             } catch (Exception ex) {
                 int count = getCount();
-                LOGGER.error("反序列化失败，重试第 {} 次， object = {}", count, object);
+                LOGGER.error("反序列化失败，重试第 {} 次， object = {}", count, object, ex);
                 if (count < MAX_RETRIES_NUMBER) {
-                    LOGGER.info("反序列化失败，重试第 {} 次，  object = {}", count, object);
+                    LOGGER.info("反序列化失败，重试第 {} 次，  object = {}", count, object, ex);
                     serialize(object);
                 }
             }

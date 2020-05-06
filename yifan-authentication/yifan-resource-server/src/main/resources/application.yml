@@ -10,14 +10,6 @@ spring:
         server-addr: 192.168.109.10:8848
   application:
     name: yifan-resource-server
-security:
-  oauth2:
-    resource:
-      token-info-uri: http://127.0.0.1:6002/oauth/check_token
-    client:
-      access-token-uri: http://127.0.0.1:6002/oauth/token
-      client-id: oauth2
-      client-secret: oauth2
 logging:
   level:
     org.springframework.security: debug
