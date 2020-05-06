@@ -11,7 +11,7 @@
  Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 21/04/2020 19:36:49
+ Date: 06/05/2020 16:14:40
 */
 
 SET NAMES utf8mb4;
@@ -37,11 +37,12 @@ CREATE TABLE `oauth_client_details`  (
   `autoapprove` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否自动授权 是-true',
   `status` int(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of oauth_client_details
 -- ----------------------------
-INSERT INTO `oauth_client_details` VALUES (6, 'owen', NULL, '$2a$10$a1ZEXiZQr604LN.wVxet.etPm6RvDs.HIaXP48J2HKRaEnZORTVwe', NULL, 'app', 'authorization_code,password,refresh_token,client_credentials', 'http://127.0.0.1:8000/test', NULL, 10000, 30000, '{}', 'false', 1);
+INSERT INTO `oauth_client_details` VALUES (6, 'owen', NULL, '$2a$10$a1ZEXiZQr604LN.wVxet.etPm6RvDs.HIaXP48J2HKRaEnZORTVwe', NULL, 'app,read,write', 'authorization_code,password,refresh_token,client_credentials', 'http://127.0.0.1:8080/test', NULL, 10000, 30000, '{}', 'false', 1);
+INSERT INTO `oauth_client_details` VALUES (7, 'oauth2', NULL, '$2a$10$wlgcx61faSJ8O5I4nLiovO9T36HBQgh4RhOQAYNORCzvANlInVlw2', NULL, 'app,read,write', 'authorization_code,password,refresh_token,client_credentials', 'http://127.0.0.1:6001/login', NULL, 10000, 30000, '{}', 'fales', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
