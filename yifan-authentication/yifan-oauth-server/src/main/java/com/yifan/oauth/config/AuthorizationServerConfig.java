@@ -15,6 +15,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStoreSerializationStrategy;
+
+import com.yifan.oauth.config.serialization.FastJsonRedisTokenStoreSerializationStrategy;
 
 /**
  * The type Authorization server config.
@@ -40,8 +43,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private DataSource dataSource;
 
     @Bean
+    public RedisTokenStoreSerializationStrategy redisTokenStoreSerializationStrategy() {
+        return new FastJsonRedisTokenStoreSerializationStrategy();
+    }
+
+    @Bean
     public TokenStore tokenStore(RedisConnectionFactory redisConnectionFactory) {
-        return new RedisTokenStore(redisConnectionFactory);
+        RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
+        tokenStore.setSerializationStrategy(redisTokenStoreSerializationStrategy());
+        return tokenStore;
     }
 
 //    @Bean

@@ -14,10 +14,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStoreSerializationStrategy;
 
 import com.yifan.common.properties.CustomerSecurityProperties;
 import com.yifan.security.entrypoint.SimpleAccessDeniedHandler;
 import com.yifan.security.entrypoint.SimpleAuthenticationEntryPoint;
+import com.yifan.serialization.FastJsonRedisTokenStoreSerializationStrategy;
 
 @Configuration
 @EnableResourceServer
@@ -26,8 +28,15 @@ import com.yifan.security.entrypoint.SimpleAuthenticationEntryPoint;
 public class ResourceConfiguration extends ResourceServerConfigurerAdapter {
 
     @Bean
+    public RedisTokenStoreSerializationStrategy redisTokenStoreSerializationStrategy() {
+        return new FastJsonRedisTokenStoreSerializationStrategy();
+    }
+
+    @Bean
     public TokenStore tokenStore(RedisConnectionFactory redisConnectionFactory) {
-        return new RedisTokenStore(redisConnectionFactory);
+        RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
+        tokenStore.setSerializationStrategy(redisTokenStoreSerializationStrategy());
+        return tokenStore;
     }
 
     @Resource

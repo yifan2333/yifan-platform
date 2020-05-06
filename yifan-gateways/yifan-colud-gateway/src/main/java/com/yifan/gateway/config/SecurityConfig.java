@@ -15,6 +15,7 @@ import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStoreSerializationStrategy;
 import org.springframework.security.oauth2.server.resource.web.server.ServerBearerTokenAuthenticationConverter;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.authentication.AuthenticationWebFilter;
@@ -22,6 +23,8 @@ import org.springframework.web.cors.reactive.CorsUtils;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
+
+import com.yifan.gateway.config.serialization.FastJsonRedisTokenStoreSerializationStrategy;
 
 import reactor.core.publisher.Mono;
 
@@ -37,8 +40,15 @@ public class SecurityConfig {
     private static final String MAX_AGE = "18000L";
 
     @Bean
+    public RedisTokenStoreSerializationStrategy redisTokenStoreSerializationStrategy() {
+        return new FastJsonRedisTokenStoreSerializationStrategy();
+    }
+
+    @Bean
     public TokenStore tokenStore(RedisConnectionFactory redisConnectionFactory) {
-        return new RedisTokenStore(redisConnectionFactory);
+        RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
+        tokenStore.setSerializationStrategy(redisTokenStoreSerializationStrategy());
+        return tokenStore;
     }
 
     @Resource
