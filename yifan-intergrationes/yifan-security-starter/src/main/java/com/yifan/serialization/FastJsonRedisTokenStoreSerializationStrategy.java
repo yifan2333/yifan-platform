@@ -57,23 +57,18 @@ public class FastJsonRedisTokenStoreSerializationStrategy implements RedisTokenS
      * @return T
      */
     @Override
-    public <T> T deserialize(byte[] bytes, Class<T> clazz)
-    {
+    public <T> T deserialize(byte[] bytes, Class<T> clazz) {
         AssertUtils.isNull(clazz, "clazz 不能为空");
-        if (!AssertUtils.isNull(bytes))
-        {
+        if (!AssertUtils.isNull(bytes)) {
             String input = new String(bytes, IOUtils.UTF8);
-            try
-            {
+            try {
                 T t = JSON.parseObject(input, clazz, DEFAULT_REDIS_CONFIG);
                 remove();
                 return t;
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 int count = getCount();
                 LOGGER.error("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz);
-                if (count < MAX_RETRIES_NUMBER)
-                {
+                if (count < MAX_RETRIES_NUMBER) {
                     LOGGER.info("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz);
                     deserialize(bytes, clazz);
                 }
@@ -89,32 +84,25 @@ public class FastJsonRedisTokenStoreSerializationStrategy implements RedisTokenS
      * @return String
      */
     @Override
-    public String deserializeString(byte[] bytes)
-    {
-        if (AssertUtils.isNull(bytes))
-        {
+    public String deserializeString(byte[] bytes) {
+        if (AssertUtils.isNull(bytes)) {
             return null;
         }
         return new String(bytes, IOUtils.UTF8);
     }
 
     @Override
-    public byte[] serialize(Object object)
-    {
-        if (Objects.nonNull(object))
-        {
-            try
-            {
+    public byte[] serialize(Object object) {
+        if (Objects.nonNull(object)) {
+            try {
                 byte[] bytes = JSON.toJSONBytes(object, SerializerFeature.WriteClassName,
                         SerializerFeature.DisableCircularReferenceDetect);
                 remove();
                 return bytes;
-            } catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 int count = getCount();
                 LOGGER.error("反序列化失败，重试第 {} 次， object = {}", count, object);
-                if (count < MAX_RETRIES_NUMBER)
-                {
+                if (count < MAX_RETRIES_NUMBER) {
                     LOGGER.info("反序列化失败，重试第 {} 次，  object = {}", count, object);
                     serialize(object);
                 }
@@ -130,17 +118,14 @@ public class FastJsonRedisTokenStoreSerializationStrategy implements RedisTokenS
      * @return byte[]
      */
     @Override
-    public byte[] serialize(String data)
-    {
-        if (StringUtils.isNotBlank(data))
-        {
+    public byte[] serialize(String data) {
+        if (StringUtils.isNotBlank(data)) {
             return data.getBytes(IOUtils.UTF8);
         }
         return new byte[0];
     }
 
-    private static int getCount()
-    {
+    private static int getCount() {
         Integer count = RETRIES_NUMBER.get();
         count = Objects.nonNull(count) ? ++count : 0;
         RETRIES_NUMBER.set(count);
