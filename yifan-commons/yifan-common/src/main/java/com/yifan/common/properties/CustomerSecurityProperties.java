@@ -67,4 +67,12 @@ public class CustomerSecurityProperties {
     public void setIgnored(String[] ignored) {
         this.ignored = ignored;
     }
+
+    public String getLoginProcessingUrl() {
+        return loginProcessingUrl;
+    }
+
+    public void setLoginProcessingUrl(String loginProcessingUrl) {
+        this.loginProcessingUrl = loginProcessingUrl;
+    }
 }
