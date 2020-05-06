@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.yifan.redis.config.WebConfig
+com.yifan.web.config.WebConfig

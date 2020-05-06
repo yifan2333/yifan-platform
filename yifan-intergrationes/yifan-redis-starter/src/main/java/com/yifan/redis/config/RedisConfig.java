@@ -9,8 +9,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 @ComponentScan(basePackages = "com.yifan.redis")
 public class RedisConfig {
 
-    @Bean
-    public JsonRedisTemplate redisTemplate(RedisConnectionFactory connectionFactory) {
+    @Bean(name = "jsonRedisTemplate")
+    public JsonRedisTemplate jsonRedisTemplate(RedisConnectionFactory connectionFactory) {
         return new JsonRedisTemplate(connectionFactory);
     }
 }

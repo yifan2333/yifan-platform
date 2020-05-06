@@ -8,6 +8,8 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.109.10:8848
+  application:
+    name: yifan-resource-server
 security:
   oauth2:
     resource:
@@ -16,4 +18,6 @@ security:
       access-token-uri: http://127.0.0.1:6002/oauth/token
       client-id: oauth2
       client-secret: oauth2
-
+logging:
+  level:
+    org.springframework.security: debug

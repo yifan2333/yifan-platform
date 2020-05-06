@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "name": "application.security.oauth",
+      "type": "com.yifan.config.CustomerSecurityProperties",
+      "sourceType": "com.yifan.config.CustomerSecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "application.security.oauth.ignored",
+      "type": "java.lang.String[]",
+      "sourceType": "com.yifan.config.CustomerSecurityProperties"
+    },
+    {
+      "name": "application.security.oauth.login-processing-url",
+      "type": "java.lang.String",
+      "description": "登录请求的路径, 默认值 \/authorization\/form",
+      "sourceType": "com.yifan.config.CustomerSecurityProperties",
+      "defaultValue": "\/authorization\/form"
+    }
+  ],
+  "hints": []
+}

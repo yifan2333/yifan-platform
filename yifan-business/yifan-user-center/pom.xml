@@ -29,6 +29,10 @@
             <groupId>com.yifan</groupId>
             <artifactId>yifan-web-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.yifan</groupId>
+            <artifactId>yifan-common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

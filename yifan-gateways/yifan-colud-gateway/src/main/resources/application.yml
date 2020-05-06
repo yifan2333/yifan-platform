@@ -1,0 +1,30 @@
+server:
+  port: 2000
+spring:
+  application:
+    name: yifan-colud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.109.10:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: false
+  redis:
+    host: 192.168.109.10
+    port: 6379
+application:
+  security:
+    oauth:
+      ignored:
+        - '/yifan-oauth-server/**'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+

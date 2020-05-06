@@ -6,6 +6,7 @@
         <groupId>com.yifan</groupId>
         <artifactId>yifan-platform</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>yifan-gateways</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -14,7 +15,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>gateway</module>
+        <module>yifan-colud-gateway</module>
+        <module>yifan-gateway-zuul</module>
     </modules>
 
     <build>
