@@ -15,7 +15,7 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.yifan.utils.AssertUtils;
+import com.yifan.common.utils.AssertUtils;
 
 public class FastJsonRedisTokenStoreSerializationStrategy implements RedisTokenStoreSerializationStrategy {
 
