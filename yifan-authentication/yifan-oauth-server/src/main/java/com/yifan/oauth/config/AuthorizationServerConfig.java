@@ -17,7 +17,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStoreSerializationStrategy;
 
-import com.yifan.oauth.config.serialization.FastJsonRedisTokenStoreSerializationStrategy;
+import com.yifan.common.serialization.FastJsonRedisTokenStoreSerializationStrategy;
 
 /**
  * The type Authorization server config.

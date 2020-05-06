@@ -24,7 +24,7 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 
-import com.yifan.gateway.config.serialization.FastJsonRedisTokenStoreSerializationStrategy;
+import com.yifan.common.serialization.FastJsonRedisTokenStoreSerializationStrategy;
 
 import reactor.core.publisher.Mono;
 

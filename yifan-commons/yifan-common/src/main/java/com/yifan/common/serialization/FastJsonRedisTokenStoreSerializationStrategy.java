@@ -1,4 +1,4 @@
-package com.yifan.serialization;
+package com.yifan.common.serialization;
 
 import java.util.Objects;
 
@@ -67,9 +67,9 @@ public class FastJsonRedisTokenStoreSerializationStrategy implements RedisTokenS
                 return t;
             } catch (Exception e) {
                 int count = getCount();
-                LOGGER.error("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz, e);
+                LOGGER.error("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz);
                 if (count < MAX_RETRIES_NUMBER) {
-                    LOGGER.info("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz, e);
+                    LOGGER.info("反序列化失败，重试第 {} 次，input = {}, clazz = {}", count, input, clazz);
                     deserialize(bytes, clazz);
                 }
             }
@@ -101,9 +101,9 @@ public class FastJsonRedisTokenStoreSerializationStrategy implements RedisTokenS
                 return bytes;
             } catch (Exception ex) {
                 int count = getCount();
-                LOGGER.error("反序列化失败，重试第 {} 次， object = {}", count, object, ex);
+                LOGGER.error("反序列化失败，重试第 {} 次， object = {}", count, object);
                 if (count < MAX_RETRIES_NUMBER) {
-                    LOGGER.info("反序列化失败，重试第 {} 次，  object = {}", count, object, ex);
+                    LOGGER.info("反序列化失败，重试第 {} 次，  object = {}", count, object);
                     serialize(object);
                 }
             }

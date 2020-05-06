@@ -1,4 +1,4 @@
-package com.yifan.oauth.config.serialization;
+package com.yifan.common.serialization;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;

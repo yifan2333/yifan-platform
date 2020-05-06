@@ -17,9 +17,9 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStoreSerializationStrategy;
 
 import com.yifan.common.properties.CustomerSecurityProperties;
+import com.yifan.common.serialization.FastJsonRedisTokenStoreSerializationStrategy;
 import com.yifan.security.entrypoint.SimpleAccessDeniedHandler;
 import com.yifan.security.entrypoint.SimpleAuthenticationEntryPoint;
-import com.yifan.serialization.FastJsonRedisTokenStoreSerializationStrategy;
 
 @Configuration
 @EnableResourceServer

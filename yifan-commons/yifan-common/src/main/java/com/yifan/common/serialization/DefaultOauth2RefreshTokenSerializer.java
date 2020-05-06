@@ -1,4 +1,4 @@
-package com.yifan.serialization;
+package com.yifan.common.serialization;
 
 import java.lang.reflect.Type;
 
