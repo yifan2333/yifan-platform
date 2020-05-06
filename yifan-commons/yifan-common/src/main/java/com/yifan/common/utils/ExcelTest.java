@@ -9,7 +9,7 @@ import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 
-public class ExcelUtils {
+public class ExcelTest {
 
     public static void main(String[] args) {
 
