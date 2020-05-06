@@ -11,7 +11,7 @@
  Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 21/04/2020 19:37:06
+ Date: 06/05/2020 16:14:54
 */
 
 SET NAMES utf8mb4;
@@ -46,19 +46,20 @@ CREATE TABLE `sys_menu`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_permission`;
 CREATE TABLE `sys_permission`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '权限编号',
+  `permission_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '权限编号',
   `permission` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '权限简码',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '权限名称',
   `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '更新时间',
   `is_deleted` tinyint(4) NULL DEFAULT 0 COMMENT '是否删除 0否 1是',
-  PRIMARY KEY (`id`) USING BTREE,
+  PRIMARY KEY (`permission_id`) USING BTREE,
   UNIQUE INDEX `permission`(`permission`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_permission
 -- ----------------------------
+INSERT INTO `sys_permission` VALUES (1, 'permission:post/permissions', '保存权限标识', '2020-04-24 10:40:05', '2020-04-24 10:40:05', 0);
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -73,11 +74,12 @@ CREATE TABLE `sys_role`  (
   `is_deleted` tinyint(4) NULL DEFAULT 0 COMMENT '是否删除 0否 1是',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `code`(`code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
+INSERT INTO `sys_role` VALUES (1, 'ADMIN', '管理员', '2020-04-24 10:41:01', '2020-04-24 10:41:01', 0);
 
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -109,11 +111,12 @@ CREATE TABLE `sys_role_permission`  (
   `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role_permission
 -- ----------------------------
+INSERT INTO `sys_role_permission` VALUES (1, 1, 1, 0, '2020-04-24 10:41:25', '2020-04-24 10:41:25');
 
 -- ----------------------------
 -- Table structure for sys_role_user
@@ -127,11 +130,12 @@ CREATE TABLE `sys_role_user`  (
   `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role_user
 -- ----------------------------
+INSERT INTO `sys_role_user` VALUES (1, 1, 1, 0, '2020-04-24 10:41:45', '2020-04-24 10:41:45');
 
 -- ----------------------------
 -- Table structure for sys_user
