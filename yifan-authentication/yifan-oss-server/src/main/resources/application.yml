@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.109.10:8848
+        server-addr: yifan.server.com:8848
 security:
   oauth2:
     sso:

@@ -6,10 +6,10 @@ spring:
   application:
     name: yifan-oauth-server
   redis:
-    host: 192.168.109.10
+    host: yifan.server.com
     port: 6379
   datasource:
-    url: jdbc:mysql://192.168.109.10:3306/oauth-center?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://yifan.server.com:3306/oauth-center?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
@@ -22,7 +22,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.109.10:8848
+        server-addr: yifan.server.com:8848
 application:
   security:
     oauth:

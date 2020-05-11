@@ -6,9 +6,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.109.10:8848
+        server-addr: yifan.server.com:8848
   redis:
-    host: 192.168.109.10
+    host: yifan.server.com
     port: 6379
 security:
   oauth2:
