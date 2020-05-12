@@ -12,9 +12,19 @@ spring:
                 server-addr: yifan.server:8848
         sentinel:
             transport:
-                dashboard: yifan.server:8089
+                dashboard: 127.0.0.1:8080
                 port: 8719
                 clientIp: 10.4.105.92
+            #开启懒加载
+            eager: true
+            datasource:
+                ns:
+                    nacos:
+                        serverAddr: yifan.server:8848
+                        dataId: ${spring.application.name}-flow-rules
+                        groupId: SENTINEL_GROUP
+                        rule_type: flow
+                        dataType: json
 management:
     endpoints:
         web:

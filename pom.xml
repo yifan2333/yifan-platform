@@ -21,6 +21,7 @@
         <module>yifan-authentication</module>
         <module>yifan-business</module>
         <module>yifan-commons</module>
+        <module>yifan-flow-control</module>
     </modules>
 
     <properties>
