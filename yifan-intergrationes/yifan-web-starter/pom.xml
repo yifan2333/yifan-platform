@@ -8,9 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>yifan-web-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-web-starter</name>
-    <description>Demo project for Spring Boot</description>
+    <description>web 支持</description>
 
     <dependencies>
         <dependency>

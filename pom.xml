@@ -24,7 +24,6 @@
     </modules>
 
     <properties>
-        <yifan-platform.version>0.0.1-SNAPSHOT</yifan-platform.version>
         <java.version>1.8</java.version>
         <hutool.version>5.3.2</hutool.version>
         <apache-poi.version>4.1.0</apache-poi.version>
@@ -51,32 +50,32 @@
             <dependency>
                 <groupId>com.yifan</groupId>
                 <artifactId>yifan-swagger-starter</artifactId>
-                <version>${yifan-platform.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.yifan</groupId>
                 <artifactId>yifan-web-starter</artifactId>
-                <version>${yifan-platform.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.yifan</groupId>
                 <artifactId>yifan-redis-starter</artifactId>
-                <version>${yifan-platform.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.yifan</groupId>
                 <artifactId>yifan-mysql-starter</artifactId>
-                <version>${yifan-platform.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.yifan</groupId>
                 <artifactId>yifan-security-starter</artifactId>
-                <version>${yifan-platform.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.yifan</groupId>
                 <artifactId>yifan-common</artifactId>
-                <version>${yifan-platform.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -109,4 +108,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

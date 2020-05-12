@@ -8,13 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>yifan-mysql-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-mysql-starter</name>
-    <description>Demo project for Spring Boot</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <description>mysql 支持</description>
 
     <dependencies>
         <dependency>
@@ -28,4 +22,14 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <classesDirectory>dummy</classesDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

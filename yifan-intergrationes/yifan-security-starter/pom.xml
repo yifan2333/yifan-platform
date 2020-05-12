@@ -8,8 +8,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>yifan-security-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-security-starter</name>
     <description>安全支持</description>
 
     <dependencies>

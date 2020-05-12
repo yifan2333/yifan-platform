@@ -8,8 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>yifan-redis-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-redis-starter</name>
+    <description>redis 支持</description>
 
     <dependencies>
         <dependency>

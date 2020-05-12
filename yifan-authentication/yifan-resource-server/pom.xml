@@ -8,9 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>yifan-resource-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-resource-server</name>
-    <description>Demo project for Spring Boot</description>
+    <description>资源服务</description>
 
     <dependencies>
         <dependency>

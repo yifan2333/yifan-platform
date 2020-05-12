@@ -7,11 +7,8 @@
         <artifactId>yifan-gateways</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.yifan</groupId>
     <artifactId>yifan-gateway-zuul</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-gateway-zuul</name>
-    <description>Demo project for Spring Boot</description>
+    <description>zuul 网关</description>
 
     <dependencies>
         <dependency>

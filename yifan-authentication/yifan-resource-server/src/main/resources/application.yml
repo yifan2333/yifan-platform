@@ -2,12 +2,12 @@ server:
   port: 6003
 spring:
   redis:
-    host: yifan.server.com
+    host: yifan.server
     port: 6379
   cloud:
     nacos:
       discovery:
-        server-addr: yifan.server.com:8848
+        server-addr: yifan.server:8848
   application:
     name: yifan-resource-server
 security:

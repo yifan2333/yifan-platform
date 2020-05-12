@@ -9,7 +9,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>yifan-authentication</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>yifan-authentication</name>
     <description>认证授权</description>
     <packaging>pom</packaging>

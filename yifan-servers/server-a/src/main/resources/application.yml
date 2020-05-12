@@ -4,14 +4,17 @@ spring:
     application:
         name: service-a
     cloud:
+        inetutils:
+            preferred-networks: 10.4
+            ignored-interfaces: VMware*
         nacos:
             discovery:
-                server-addr: yifan.server.com:8848
+                server-addr: yifan.server:8848
         sentinel:
             transport:
-                dashboard: yifan.server.com:8089
+                dashboard: yifan.server:8089
                 port: 8719
-
+                clientIp: 10.4.105.92
 management:
     endpoints:
         web:

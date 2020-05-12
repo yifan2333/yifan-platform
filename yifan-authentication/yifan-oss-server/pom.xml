@@ -8,9 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>yifan-oss-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-oss-server</name>
-    <description>Demo project for Spring Boot</description>
+    <description>单点登录</description>
 
 
     <dependencies>

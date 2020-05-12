@@ -6,10 +6,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: yifan.server.com:8848
+        server-addr: yifan.server:8848
 
   datasource:
-    url: jdbc:mysql://yifan.server.com:3306/user-center?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://yifan.server:3306/user-center?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
@@ -20,4 +20,4 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   redis:
-    host: yifan.server.com
+    host: yifan.server

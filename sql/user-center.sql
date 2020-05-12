@@ -4,7 +4,7 @@
  Source Server         : local-server
  Source Server Type    : MySQL
  Source Server Version : 50729
- Source Host           : yifan.server.com:3306
+ Source Host           : yifan.server:3306
  Source Schema         : user-center
 
  Target Server Type    : MySQL

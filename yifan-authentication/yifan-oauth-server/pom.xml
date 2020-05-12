@@ -8,10 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>yifan-oauth-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-oauth-server</name>
-    <description>Demo project for Spring Boot</description>
-
+    <description>认证中心</description>
 
     <dependencies>
         <dependency>
