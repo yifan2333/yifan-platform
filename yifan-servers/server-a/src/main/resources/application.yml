@@ -18,41 +18,41 @@ spring:
             #开启懒加载
             eager: true
             datasource:
-                flow:
+                flow-config:
                     nacos:
                         serverAddr: ${spring.cloud.nacos.discovery.server-addr}
                         dataId: ${spring.application.name}-flow-rules
                         groupId: SENTINEL_GROUP
                         rule_type: flow
                         dataType: json
-                degrade:
+                degrade-config:
                     nacos:
                         serverAddr: ${spring.cloud.nacos.discovery.server-addr}
                         dataId: ${spring.application.name}-degrade-rules
                         groupId: SENTINEL_GROUP
                         rule_type: degrade
                         dataType: json
-                system:
+                system-config:
                     nacos:
                         server-addr: ${spring.cloud.nacos.discovery.server-addr}
                         dataId: ${spring.application.name}-system-rules
                         groupId: SENTINEL_GROUP
                         rule-type: system
                         dataType: json
-                    authority:
-                        nacos:
-                            server-addr: ${spring.cloud.nacos.discovery.server-addr}
-                            dataId: ${spring.application.name}-authority-rules
-                            groupId: SENTINEL_GROUP
-                            rule-type: authority
-                            dataType: json
-                    param-flow:
-                        nacos:
-                            server-addr: ${spring.cloud.nacos.discovery.server-addr}
-                            dataId: ${spring.application.name}-param-flow-rules
-                            groupId: SENTINEL_GROUP
-                            rule-type: param-flow
-                            dataType: json
+                authority-config:
+                    nacos:
+                        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+                        dataId: ${spring.application.name}-authority-rules
+                        groupId: SENTINEL_GROUP
+                        rule-type: authority
+                        dataType: json
+                param-flow-config:
+                    nacos:
+                        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+                        dataId: ${spring.application.name}-param-flow-rules
+                        groupId: SENTINEL_GROUP
+                        rule-type: param-flow
+                        dataType: json
 management:
     endpoints:
         web:
