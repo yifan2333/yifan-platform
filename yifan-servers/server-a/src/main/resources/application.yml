@@ -20,7 +20,7 @@ spring:
             datasource:
                 ns:
                     nacos:
-                        serverAddr: yifan.server:8848
+                        serverAddr: ${spring.cloud.nacos.discovery.server-addr}
                         dataId: ${spring.application.name}-flow-rules
                         groupId: SENTINEL_GROUP
                         rule_type: flow

@@ -13,12 +13,12 @@ import com.alibaba.fastjson.JSONObject;
 public class TestController {
 
     @GetMapping("test")
-    public String test1(HttpServletRequest request) {
+    public String test1(HttpServletRequest request) throws InterruptedException {
         Map<String, String[]> map = request.getParameterMap();
 
         System.out.println(JSONObject.toJSONString(map));
 
-//        Thread.sleep(510);
+        Thread.sleep(10);
         return "test";
     }
 
