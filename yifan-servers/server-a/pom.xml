@@ -17,14 +17,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-datasource-nacos</artifactId>
-            <version>1.7.2</version>
+            <groupId>com.yifan</groupId>
+            <artifactId>yifan-sentinel-starter</artifactId>
         </dependency>
 
         <dependency>

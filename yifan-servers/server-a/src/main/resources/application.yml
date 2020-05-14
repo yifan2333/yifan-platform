@@ -13,46 +13,46 @@ spring:
         sentinel:
             transport:
                 dashboard: 127.0.0.1:8080
-                port: 8719
+                port: 8720
                 clientIp: 10.4.105.92
             #开启懒加载
-            eager: true
-            datasource:
-                flow-config:
-                    nacos:
-                        serverAddr: ${spring.cloud.nacos.discovery.server-addr}
-                        dataId: ${spring.application.name}-flow-rules
-                        groupId: SENTINEL_GROUP
-                        rule_type: flow
-                        dataType: json
-                degrade-config:
-                    nacos:
-                        serverAddr: ${spring.cloud.nacos.discovery.server-addr}
-                        dataId: ${spring.application.name}-degrade-rules
-                        groupId: SENTINEL_GROUP
-                        rule_type: degrade
-                        dataType: json
-                system-config:
-                    nacos:
-                        server-addr: ${spring.cloud.nacos.discovery.server-addr}
-                        dataId: ${spring.application.name}-system-rules
-                        groupId: SENTINEL_GROUP
-                        rule-type: system
-                        dataType: json
-                authority-config:
-                    nacos:
-                        server-addr: ${spring.cloud.nacos.discovery.server-addr}
-                        dataId: ${spring.application.name}-authority-rules
-                        groupId: SENTINEL_GROUP
-                        rule-type: authority
-                        dataType: json
-                param-flow-config:
-                    nacos:
-                        server-addr: ${spring.cloud.nacos.discovery.server-addr}
-                        dataId: ${spring.application.name}-param-flow-rules
-                        groupId: SENTINEL_GROUP
-                        rule-type: param-flow
-                        dataType: json
+#            eager: true
+#            datasource:
+#                flow-config:
+#                    nacos:
+#                        serverAddr: ${spring.cloud.nacos.discovery.server-addr}
+#                        dataId: ${spring.application.name}-flow-rules
+#                        groupId: SENTINEL_GROUP
+#                        rule_type: flow
+#                        dataType: json
+#                degrade-config:
+#                    nacos:
+#                        serverAddr: ${spring.cloud.nacos.discovery.server-addr}
+#                        dataId: ${spring.application.name}-degrade-rules
+#                        groupId: SENTINEL_GROUP
+#                        rule_type: degrade
+#                        dataType: json
+#                system-config:
+#                    nacos:
+#                        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+#                        dataId: ${spring.application.name}-system-rules
+#                        groupId: SENTINEL_GROUP
+#                        rule-type: system
+#                        dataType: json
+#                authority-config:
+#                    nacos:
+#                        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+#                        dataId: ${spring.application.name}-authority-rules
+#                        groupId: SENTINEL_GROUP
+#                        rule-type: authority
+#                        dataType: json
+#                param-flow-config:
+#                    nacos:
+#                        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+#                        dataId: ${spring.application.name}-param-flow-rules
+#                        groupId: SENTINEL_GROUP
+#                        rule-type: param-flow
+#                        dataType: json
 management:
     endpoints:
         web:

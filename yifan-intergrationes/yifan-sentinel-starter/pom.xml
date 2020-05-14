@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.yifan</groupId>
+        <artifactId>yifan-intergrationes</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>yifan-sentinel-starter</artifactId>
+    <description>sentinel 限流支持</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yifan</groupId>
+            <artifactId>yifan-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yifan</groupId>
+            <artifactId>yifan-web-starter</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>

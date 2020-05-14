@@ -18,6 +18,7 @@
         <module>yifan-swagger-starter</module>
         <module>yifan-redis-starter</module>
         <module>yifan-security-starter</module>
+        <module>yifan-sentinel-starter</module>
     </modules>
 
     <build>

@@ -25,6 +25,8 @@ public enum ResultType implements BaseResultType {
 
 	UNSUPPORTED_MEDIA_TYPE(415, "不支持的媒体类型"),
 
+	TOO_MANY_REQUESTS(429, "请稍后重试"),
+
 	INTERNAL_ERROR(500, "服务异常"),
 	
 	NOT_EXTENDED(510, "未知错误"),
