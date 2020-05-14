@@ -1,4 +1,4 @@
-package com.yifan.gateway.config;
+package com.yifan.gateway.config.oauth;
 
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;

@@ -12,6 +12,11 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: false
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+        port: 8722
+        clientIp: 10.4.105.92
   redis:
     host: yifan.server
     port: 6379

@@ -1,4 +1,4 @@
-package com.yifan.gateway.config;
+package com.yifan.gateway.config.oauth;
 
 import java.util.Arrays;
 
