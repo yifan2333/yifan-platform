@@ -1,5 +1,5 @@
 server:
-    port: 8000
+    port: 8001
 spring:
     application:
         name: service
@@ -13,7 +13,7 @@ spring:
         sentinel:
             transport:
                 dashboard: 127.0.0.1:8080
-                port: 8720
+                port: 8721
                 clientIp: 10.4.105.92
             #开启懒加载
 #            eager: true

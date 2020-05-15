@@ -14,6 +14,7 @@
 
     <modules>
         <module>server-a</module>
+        <module>server-b</module>
     </modules>
 
     <build>
