@@ -1,23 +1,17 @@
 package com.yifan.gateway.config.sentinel;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
+import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiDefinition;
+import com.alibaba.csp.sentinel.adapter.gateway.common.api.GatewayApiDefinitionManager;
+import com.alibaba.csp.sentinel.adapter.gateway.common.rule.GatewayFlowRule;
+import com.alibaba.csp.sentinel.adapter.gateway.common.rule.GatewayRuleManager;
 import com.alibaba.csp.sentinel.datasource.ReadableDataSource;
 import com.alibaba.csp.sentinel.datasource.nacos.NacosDataSource;
-import com.alibaba.csp.sentinel.slots.block.authority.AuthorityRule;
-import com.alibaba.csp.sentinel.slots.block.authority.AuthorityRuleManager;
-import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRule;
-import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRuleManager;
-import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
-import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
-import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowRule;
-import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowRuleManager;
-import com.alibaba.csp.sentinel.slots.system.SystemRule;
-import com.alibaba.csp.sentinel.slots.system.SystemRuleManager;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
@@ -40,71 +34,19 @@ public class SentinelConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        loadFlowRule();
-        loadDegradeRule();
-        loadAuthorityRule();
-        loadParamFlowRule();
-        loadSystemRule();
+        initGatewayRules();
+        initGatewayApis();
     }
 
-    /**
-     * Load flow rule.
-     *
-     * @author wuyifan
-     * @date 2020年05月14日 18:28
-     */
-    private void loadFlowRule() {
-        ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = new NacosDataSource<>(nacosServerAddr, groupId,
-                applicationName + "-flow-rules", source -> JSON.parseObject(source, new TypeReference<List<FlowRule>>() {}));
-        FlowRuleManager.register2Property(flowRuleDataSource.getProperty());
+    private void initGatewayRules() {
+        ReadableDataSource<String, Set<GatewayFlowRule>> flowRuleDataSource = new NacosDataSource<>(nacosServerAddr, groupId,
+                applicationName + "-gateway-flow-rules", source -> JSON.parseObject(source, new TypeReference<Set<GatewayFlowRule>>() {}));
+        GatewayRuleManager.register2Property(flowRuleDataSource.getProperty());
     }
 
-    /**
-     * Load degrade rule.
-     *
-     * @author wuyifan
-     * @date 2020年05月14日 18:28
-     */
-    private void loadDegradeRule() {
-        ReadableDataSource<String, List<DegradeRule>> degradeRuleSource = new NacosDataSource<>(nacosServerAddr, groupId,
-                applicationName + "-degrade-rules", source -> JSON.parseObject(source, new TypeReference<List<DegradeRule>>() {}));
-        DegradeRuleManager.register2Property(degradeRuleSource.getProperty());
-    }
-
-    /**
-     * Load param flow rule.
-     *
-     * @author wuyifan
-     * @date 2020年05月14日 18:28
-     */
-    private void loadParamFlowRule() {
-        ReadableDataSource<String, List<ParamFlowRule>> paramFlowRuleDataSource = new NacosDataSource<>(nacosServerAddr, groupId,
-                applicationName + "-param-flow-rules", source -> JSON.parseObject(source, new TypeReference<List<ParamFlowRule>>() {}));
-        ParamFlowRuleManager.register2Property(paramFlowRuleDataSource.getProperty());
-    }
-
-    /**
-     * Load authority rule.
-     *
-     * @author wuyifan
-     * @date 2020年05月14日 18:28
-     */
-    private void loadAuthorityRule() {
-        ReadableDataSource<String, List<AuthorityRule>> authorityRuleDataSource = new NacosDataSource<>(nacosServerAddr, groupId,
-                applicationName + "-authority-rules", source -> JSON.parseObject(source, new TypeReference<List<AuthorityRule>>() {
-        }));
-        AuthorityRuleManager.register2Property(authorityRuleDataSource.getProperty());
-    }
-
-    /**
-     * Load system rule.
-     *
-     * @author wuyifan
-     * @date 2020年05月14日 18:28
-     */
-    private void loadSystemRule() {
-        ReadableDataSource<String, List<SystemRule>> systemRuleDataSource = new NacosDataSource<>(nacosServerAddr, groupId,
-                applicationName + "-system-rules", source -> JSON.parseObject(source, new TypeReference<List<SystemRule>>() {}));
-        SystemRuleManager.register2Property(systemRuleDataSource.getProperty());
+    private void initGatewayApis() {
+        ReadableDataSource<String, Set<ApiDefinition>> flowRuleDataSource = new NacosDataSource<>(nacosServerAddr, groupId,
+                applicationName + "-gateway-apis", source -> JSON.parseObject(source, new TypeReference<Set<ApiDefinition>>() {}));
+        GatewayApiDefinitionManager.register2Property(flowRuleDataSource.getProperty());
     }
 }

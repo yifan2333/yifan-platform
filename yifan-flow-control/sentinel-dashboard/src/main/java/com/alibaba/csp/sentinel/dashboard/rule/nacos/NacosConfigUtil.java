@@ -44,6 +44,9 @@ public final class NacosConfigUtil {
     public static final String DASHBOARD_POSTFIX = "-dashboard";
     public static final String CLUSTER_MAP_DATA_ID_POSTFIX = "-cluster-map";
 
+    public static final String GATEWAY_FLOW_DATA_ID_POSTFIX = "-gateway-flow-rules";
+    public static final String GATEWAY_API_DATA_ID_POSTFIX = "-gateway-apis";
+
     /**
      * cc for `cluster-client`
      */

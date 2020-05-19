@@ -37,5 +37,4 @@ public class GatewayConfiguration {
     public GlobalFilter sentinelGatewayFilter() {
         return new SentinelGatewayFilter();
     }
-
 }
