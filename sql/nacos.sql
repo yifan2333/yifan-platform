@@ -4,7 +4,7 @@
  Source Server         : local-server
  Source Server Type    : MySQL
  Source Server Version : 50729
- Source Host           : yifan.server:3306
+ Source Host           : 10.4.105.95:3306
  Source Schema         : nacos
 
  Target Server Type    : MySQL

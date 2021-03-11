@@ -1,4 +1,4 @@
-package com.yifan.server;
+package com.10.4.105.95;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
